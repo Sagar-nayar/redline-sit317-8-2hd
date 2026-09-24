@@ -1,0 +1,230 @@
+/* ============================================================
+   Redline. - the whole look, in one file
+   ============================================================
+
+   The palette and the type come straight out of our Task 6.1P
+   Marketing and Branding Plan, so nothing here is invented for
+   the prototype.
+
+   The one rule that matters: red is a MARK, never a fill.
+
+   Red at any scale reads as danger, and our buyer is a cautious
+   principal at a six person practice who responds to calm and
+   evidence, not to alarm. The whole security industry shouts at
+   this person with padlocks and warning triangles, which is
+   exactly the register we are trying not to be in. So red only
+   ever shows up on small things that mean something: a filled
+   segment of a posture band, the selected answer, the lifecycle
+   stage that is failing, and the primary button. Nothing else on
+   any screen carries colour at all.
+
+   Sagar Nayar, SIT317 Task 8.2HD
+   ============================================================ */
+
+:root{
+  --paper:#FAF7F1;      /* warm paper, page background */
+  --card:#FFFDF9;       /* raised surface */
+  --ink:#2C2A28;        /* charcoal, all body text */
+  --mute:#6F6A62;       /* secondary text */
+  --line:#DCD4C6;       /* hairline rules and borders */
+  --band:#F2EEE5;       /* quiet fill for panels */
+  --red:#A8201A;        /* the mark. see the note up top, never a large fill */
+  --red-soft:#F3E3E1;
+  --ok:#3C6E47;
+  --radius:3px;
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* Newsreader for headings and the wordmark, IBM Plex Sans for body, IBM Plex Mono for
+   dates, references and the little uppercase labels. The serif is doing deliberate work:
+   it makes the pages read like professional documents rather than like a security product,
+   which is the register a lawyer or accountant already trusts. */
+h1,h2,h3,.serif{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-0.01em}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:0 0 .6rem}
+h2{font-size:clamp(1.4rem,3vw,2rem);line-height:1.2;margin:0 0 .6rem}
+h3{font-size:1.15rem;margin:0 0 .4rem}
+p{margin:0 0 1rem;max-width:64ch}
+a{color:var(--red)}
+
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--red);margin:0 0 .5rem}
+.label-mute{color:var(--mute)}
+.small{font-size:.86rem;color:var(--mute)}
+.tiny{font-size:.76rem;color:var(--mute)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- site header ---------- */
+.site{border-bottom:1px solid var(--line);background:var(--card)}
+.site .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-size:1.35rem;color:var(--ink);text-decoration:none}
+.wordmark .dot{color:var(--red)}
+.site nav{display:flex;align-items:center;gap:18px}
+.site nav a{color:var(--ink);text-decoration:none;font-size:.9rem}
+.site nav a:hover{color:var(--red)}
+
+/* ---------- BUTTONS ----------
+   One solid red button per screen and that is it. If there were two, neither would mean
+   anything. Everything secondary is an outline. */
+.btn{display:inline-block;border:1px solid var(--red);background:var(--red);color:#fff;
+  padding:13px 22px;border-radius:var(--radius);font-size:.95rem;text-decoration:none;cursor:pointer;
+  font-family:inherit;transition:background .15s ease}
+.btn:hover{background:#8E1B16;border-color:#8E1B16}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn.quiet{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.quiet:hover{border-color:var(--ink)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 48px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.hero p.lead{font-size:1.06rem;color:var(--mute);max-width:46ch}
+
+/* ---------- LIFECYCLE STRIP ----------
+   collect -> verify -> keep only what's needed -> destroy.
+   Four words that explain the entire obligation, which most principals have never seen
+   laid out. The .on class marks the stage where a firm is failing, and it is nearly
+   always the third one. */
+.lifecycle{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;margin:28px 0 0}
+.lifecycle .step{flex:1 1 0;min-width:0;border:1px solid var(--line);background:var(--band);
+  border-radius:var(--radius);padding:9px 7px;font-size:.72rem;line-height:1.3;text-align:center;
+  color:var(--mute);display:grid;place-items:center}
+.lifecycle .step.on{border-color:var(--red);color:var(--ink);background:var(--card)}
+.lifecycle .arw{color:var(--red);font-size:.9rem}
+
+/* ---------- statement card ---------- */
+.stmt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.stmt-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:16px}
+.band{display:flex;gap:6px;margin:10px 0 6px}
+.band i{flex:1;height:10px;border:1px solid var(--line);border-radius:2px;background:transparent}
+.band i.on{background:var(--red);border-color:var(--red)}
+.scale{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;color:var(--mute)}
+.barline{height:9px;background:var(--line);border-radius:5px;margin:7px 0;opacity:.8}
+
+/* ---------- generic sections ---------- */
+section{padding:52px 0}
+.section-tight{padding:34px 0}
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.benefit{display:flex;gap:10px;align-items:flex-start}
+.benefit .tick{color:var(--red);font-size:.95rem;line-height:1.5}
+.benefit b{display:block;font-weight:600;font-size:.95rem}
+.benefit span{font-size:.88rem;color:var(--mute)}
+
+.trust{display:flex;gap:10px;flex-wrap:wrap;padding:18px 0 0}
+.pill{border:1px solid var(--line);border-radius:var(--radius);padding:7px 13px;font-size:.78rem;color:var(--mute)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.steps .n{font-family:"Newsreader",Georgia,serif;font-size:2.4rem;color:var(--red);line-height:1}
+
+footer.site-foot{border-top:1px solid var(--line);padding:34px 0;margin-top:20px}
+footer.site-foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ---------- READINESS CHECK ----------
+   .opt.sel uses a thicker border rather than a fill to show selection, and the padding
+   drops by a pixel to compensate so nothing jumps around when you click. .opt.unsure is
+   dashed, so "I'm not sure" reads as a legitimate answer sitting slightly apart from the
+   real ones, instead of looking like a failure option. */
+.check-shell{max-width:720px;margin:0 auto;padding:40px 24px 80px}
+.progress{display:flex;gap:6px;margin-bottom:26px}
+.progress i{flex:1;height:5px;background:var(--line);border-radius:3px}
+.progress i.on{background:var(--red)}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 30px 26px}
+.qtext{font-family:"Newsreader",Georgia,serif;font-size:1.5rem;line-height:1.25;margin:6px 0 4px}
+.qhelp{font-size:.88rem;color:var(--mute);margin:0 0 18px}
+.opts{display:flex;flex-direction:column;gap:9px;margin:0 0 22px}
+.opt{display:flex;align-items:center;gap:11px;border:1px solid var(--line);background:var(--paper);
+  border-radius:var(--radius);padding:13px 15px;cursor:pointer;font-size:.95rem;transition:border-color .12s}
+.opt:hover{border-color:var(--mute)}
+.opt.sel{border-color:var(--red);border-width:2px;padding:12px 14px}
+.opt.unsure{border-style:dashed}
+.opt .box{width:15px;height:15px;border:1px solid var(--ink);border-radius:2px;flex:none}
+.opt.sel .box{background:var(--red);border-color:var(--red)}
+.opt .box.round{border-radius:50%}
+.navrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* ---------- result ---------- */
+.gapitem{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.gapitem:last-child{border-bottom:0}
+.gapitem .idx{font-family:"IBM Plex Mono",monospace;color:var(--red);font-size:.82rem;padding-top:2px}
+.gapitem b{font-weight:600;font-size:.95rem;display:block}
+.gapitem span{font-size:.86rem;color:var(--mute)}
+.notice{background:var(--band);border-left:3px solid var(--red);padding:14px 16px;border-radius:0 var(--radius) var(--radius) 0;font-size:.88rem;color:var(--mute)}
+
+/* ---------- THE STATEMENT ----------
+   White page on the beige background, so it looks like a document sitting on a desk
+   rather than another screen. */
+.doc{background:#fff;border:1px solid var(--line);max-width:900px;margin:32px auto;padding:44px 48px}
+.doc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+  border-bottom:2px solid var(--ink);padding-bottom:14px}
+.doc-meta{display:flex;gap:26px;flex-wrap:wrap;font-size:.86rem;padding:14px 0 22px;border-bottom:1px solid var(--line)}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:22px 0}
+.panel{background:var(--band);border-radius:var(--radius);padding:18px 20px}
+.panel.plain{background:transparent;border:1px solid var(--line)}
+.findrow{display:flex;justify-content:space-between;align-items:center;gap:14px;
+  padding:9px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.count{border:1px solid var(--line);border-radius:var(--radius);padding:3px 9px;
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;white-space:nowrap}
+.action{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.action .no{font-family:"IBM Plex Mono",monospace;color:var(--red);font-size:.8rem;padding-top:3px}
+.action .est{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--mute);white-space:nowrap}
+
+/* ---------- CONSULTANT WORKSPACE ----------
+   Denser than the client facing screens on purpose. This is the one surface a consultant
+   works in all day, so it can afford to be information heavy in a way the client screens
+   absolutely cannot. */
+.ws{display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:start}
+.ws-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:.9rem}
+.chk .b{width:15px;height:15px;border:1px solid var(--ink);border-radius:2px;flex:none;margin-top:3px;
+  display:grid;place-items:center;font-size:.7rem}
+.chk .b.on{background:var(--ink);color:var(--paper)}
+table.reg{width:100%;border-collapse:collapse;font-size:.85rem}
+table.reg th,table.reg td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+table.reg th{background:var(--band);font-weight:600;font-size:.78rem}
+table.reg td.path{font-family:"IBM Plex Mono",monospace;font-size:.78rem}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:var(--radius);
+  padding:2px 8px;font-size:.72rem;font-family:"IBM Plex Mono",monospace}
+.tag.live{border-color:var(--red);color:var(--red)}
+
+/* ---------- SMALL SCREENS ----------
+   Everything collapses to one column. The service itself is desk based, which is exactly
+   why we built a web service and not an app, but the landing page still has to survive
+   being opened on a phone from a newsletter link. */
+@media (max-width:620px){
+  .lifecycle{flex-wrap:wrap}
+  .lifecycle .step{flex:1 1 44%}
+}
+@media (max-width:880px){
+  .hero-grid,.grid2,.grid3,.steps,.doc-grid,.ws{grid-template-columns:1fr}
+  .doc{padding:28px 24px}
+  .site nav a.hide-sm{display:none}
+}
+
+/* ---------- PRINTING ----------
+   This block is why "Download as PDF" produces something a firm would actually file.
+   Strip the site chrome, drop the page background, and force the panel fills and the red
+   band to print, because browsers throw away background colours by default and the
+   posture band is meaningless without them. */
+@media print{
+  body{background:#fff}
+  .site,.site-foot,.noprint{display:none !important}
+  .doc{border:0;margin:0;padding:0;max-width:none}
+  .panel{background:#f4f1ea !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .band i.on{background:#A8201A !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{margin:16mm}
+}
