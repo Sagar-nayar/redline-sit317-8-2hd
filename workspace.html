@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/redline.css">
+<title>Consultant review workspace - Redline.</title>
+</head>
+<body>
+
+<!-- The staff view. This one is simulated rather than functional, and I want to be
+     straight about why: in the live service it sits behind a login and holds real client
+     data, so building it for real here would mean handling information a uni prototype
+     has no business holding. It is included because the deletion register is created on
+     this screen, and that register is the evidence behind every Statement we issue. -->
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">Redline<span class="dot">.</span></a>
+    <nav><a href="index.html">Home</a><a href="check.html">Readiness Check</a></nav>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:26px">
+  <p class="label">Staff view &middot; simulated</p>
+  <p class="small" style="max-width:74ch">This is the internal screen a consultant works in during a review. It is simulated rather than functional, because in the live service it would sit behind authentication and hold real client data. It is included because the deletion register is created here, and that register is the evidence behind every Statement we issue.</p>
+</div>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:22px">
+      <div>
+        <div class="wordmark" style="font-size:1.2rem">Redline<span class="dot">.</span></div>
+        <h2 class="serif" style="margin:2px 0 0">Review record</h2>
+      </div>
+      <div style="text-align:right">
+        <p class="mono tiny" style="margin:0">RL-2026-0184</p>
+        <span class="tag live">IN PROGRESS</span>
+      </div>
+    </div>
+
+    <div class="ws">
+      <div class="ws-panel">
+        <p class="label">Review checklist</p>
+        <p class="tiny mono" style="margin:0 0 12px">v2.1, Essential Eight + OAIC guidance</p>
+        <div class="chk"><span class="b on">&#10003;</span><span>Identity storage locations mapped</span></div>
+        <div class="chk"><span class="b on">&#10003;</span><span>MFA coverage checked</span></div>
+        <div class="chk"><span class="b on">&#10003;</span><span>Administrator accounts reviewed</span></div>
+        <div class="chk"><span class="b on">&#10003;</span><span>Retention reviewed</span></div>
+        <div class="chk"><span class="b"></span><span>Deletions authorised</span></div>
+        <div class="chk"><span class="b"></span><span>Backups confirmed</span></div>
+        <p class="tiny" style="margin-top:16px">Every Statement records which checklist version produced it, so a change in guidance does not quietly invalidate past work.</p>
+      </div>
+
+      <div>
+        <div class="ws-panel" style="margin-bottom:20px">
+          <p class="label">Where we looked</p>
+          <div class="findrow"><span>Shared mailbox</span><span class="count">14 found</span></div>
+          <div class="findrow"><span>Matter folders</span><span class="count">9 found</span></div>
+          <div class="findrow"><span>Scanner drop folder</span><span class="count">6 found</span></div>
+          <div class="findrow"><span>Practice management system</span><span class="count">0 found</span></div>
+          <div class="findrow" style="border-bottom:0"><span>Staff laptops</span><span class="count">2 found</span></div>
+          <p class="tiny" style="margin-top:12px">The zero matters as much as the counts. It records a place that was searched and found clean, which is what makes the finding systematic rather than anecdotal.</p>
+        </div>
+
+        <div class="ws-panel">
+          <p class="label">Deletion register</p>
+          <table class="reg">
+            <thead><tr><th>File path</th><th>Date</th><th>Authorised by</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td class="path">/Shared Mailbox/ID scans/&hellip;</td><td>07 SEP 2026</td><td>A. Brennan</td><td>Removed</td></tr>
+              <tr><td class="path">/Matters/2024/&hellip;/licence.pdf</td><td>07 SEP 2026</td><td>A. Brennan</td><td>Removed</td></tr>
+              <tr><td class="path">/Scanner/drop/&hellip;</td><td>07 SEP 2026</td><td>A. Brennan</td><td>De-identified</td></tr>
+              <tr><td class="path">/Matters/2026/&hellip;/passport.pdf</td><td>07 SEP 2026</td><td>A. Brennan</td><td>Retained, client instruction</td></tr>
+            </tbody>
+          </table>
+          <p class="tiny" style="margin-top:12px">The authorising person is the column that matters. It turns a deletion from something that happened into something a named person approved. The retained row is kept deliberately, because a register showing only deletions reads as a clean sweep rather than a judgement.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws-panel" style="margin-top:20px">
+      <p class="label">Remediation</p>
+      <div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center">
+        <div class="chk"><span class="b on">&#10003;</span><span>Mailbox ID copies removed</span></div>
+        <div class="chk"><span class="b on">&#10003;</span><span>MFA enabled for all staff</span></div>
+        <div class="chk"><span class="b"></span><span>Deletion log signed off</span></div>
+        <a class="btn" href="statement.html" style="margin-left:auto">Generate Cyber Posture Statement</a>
+      </div>
+    </div>
+
+    <p class="tiny" style="margin-top:18px">No client ID documents are uploaded to Redline. Discovery happens on the firm&rsquo;s own screen, and the evidence we collect is limited to what the review needs.</p>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap"><p class="tiny" style="margin:0">SIT317 Task 8.2HD prototype &middot; Sagar Nayar &middot; simulated staff view</p></div>
+</footer>
+</body>
+</html>
